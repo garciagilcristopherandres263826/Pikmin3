@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIKMIN</title>
+
+    <style>
+
+body{
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+}
+
+main{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(170, 227, 83);
+    width: 500px;
+    height: 550px;
+}
+
+select{
+    background-color: beige;
+    border-radius: 5px;
+    border: 3px solid #66975f;
+    border-radius: 8px;
+    color: rgb(85, 52, 25);
+}
+
+button{
+    background-color: beige;
+    border-radius: 5px;
+    border: 3px solid #66975f;
+    border-radius: 8px;
+    color: rgb(85, 52, 25);
+}
+
+#Logo{
+    margin-top: 20px;
+    width: 280px;
+}
+
+#resultado{
+    font-size: 16px;
+    background-color: #f2fada;
+    width: 400px;
+    margin-left: 50px;
+    color: #324e34;
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <main>
+
+    <img src="IMG/Pikmin_3_Logo.png" alt="" width="280px" id="Logo">
+    <br><br>
+    <p style="font-size: 18px; color: #194724;"><b>Elige a tu equipo:</b></p>
+
+    <select id="personaje">
+        <option value="1">Alph</option>
+        <option value="2">Brittany</option>
+        <option value="3">Captain Charlie</option>
+    </select>
+
+    <select id="pikmin">
+        <option value="4">Pikmin Rojo</option>
+        <option value="5">Pikmin Azul</option>
+        <option value="6">Pikmin Amarillo</option>
+    </select>
+ 
+    <button id="boton">¡Comienza el día!</button>
+
+    <br><br>
+    <div id="resultado"></div>
+    <br>
+    <img id="img-personaje" src="" alt="Personaje" style="display: none; width: 80px; margin-right: 10px;">
+    <img id="img-pikmin" src="" alt="Pikmin" style="display: none; width: 80px;">
+ 
+    <script>
+        console.log("Bienvenido al mundo Pikmin");
+ 
+        var personaje = "Tripulante:";
+        var cantidad = "3";
+        const juego = "Pikmin";
+ 
+        console.log(personaje);
+        console.log(cantidad);
+        console.log(juego);
+ 
+        document.write("<p>Contaras con 3 Pikmin!</p>");
+ 
+        let boton = document.getElementById("boton");
+        boton.addEventListener("click", dioClick);
+ 
+        function dioClick() {
+            let personajeJugador = document.getElementById("personaje").value;
+            let pikminJugador = document.getElementById("pikmin").value;
+            let mensaje = "";
+            let imagenPersonaje = "";
+            let imagenPikmin = "";
+
+            switch (personajeJugador) {
+                case "1":
+                    mensaje = "Elegiste como personaje jugable a <b>ALPH</b>. <br> ";
+                    imagenPersonaje = "IMG/Alph.png";
+                    break;
+                case "2":
+                    mensaje = "Elegiste como personaje jugable a <b>BRITTANY</b>. <br> ";
+                    imagenPersonaje = "IMG/Brittany.png";
+                    break;
+                case "3":
+                    mensaje = "Elegiste como personaje jugable a <b>CAPTAIN CHARLIE</b>. <br> ";
+                    imagenPersonaje = "IMG/Charlie.png";
+                    break;
+            }
+
+
+            if (personajeJugador == "1") {
+                mensaje = mensaje +"<i>¡PNF-404 , allá vamos!</i> <br> ";
+            } else if (personajeJugador == "2") {
+                mensaje = mensaje + "<i>¡Soy yo, Brittany! ¿Me recibes?</i> <br> ";
+            } else if (personajeJugador == "3") {
+                mensaje = mensaje + "<i>Aqui Charlie... Respondan.</i> <br> ";
+            }
+
+
+            switch (pikminJugador) {
+                case "4":
+                    mensaje = mensaje + "Los pikmin de tu tripulacion seran <b>rojos</b>. <br> ";
+                    imagenPikmin = "IMG/Red_Pikmin.webp";
+                    break;
+                case "5":
+                    mensaje = mensaje + "Los pikmin de tu tripulacion seran <b>azules</b>. <br> ";
+                    imagenPikmin = "IMG/Blue_Pikmin.webp";
+                    break;
+                case "6":
+                    mensaje = mensaje + "Los pikmin de tu tripulacion seran <b>amarillos</b>. <br> ";
+                    imagenPikmin = "IMG/Yellow_Pikmin.webp";
+                    break;
+            }
+ 
+ 
+            for (let i = 1; i<=3; i++) {
+                console.log("Pikmin número " + i + " listo");
+            }
+ 
+            document.getElementById("resultado").innerHTML = mensaje;
+
+            let elPersonaje = document.getElementById("img-personaje");
+            elPersonaje.src = imagenPersonaje;
+            elPersonaje.style.display = "inline-block";
+
+            let elPikmin = document.getElementById("img-pikmin");
+            elPikmin.src = imagenPikmin;
+            elPikmin.style.display = "inline-block";
+ 
+        }
+ 
+    </script>
+
+    </main>
+   
+</body>
+</html>
+
